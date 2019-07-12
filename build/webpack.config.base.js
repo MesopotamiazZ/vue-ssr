@@ -2,8 +2,9 @@ const path = require('path')
 const createVueLoaderOptions = require('./vue-loader.config')
 
 const isDev = process.env.NODE_ENV === 'development'
-console.log(JSON.stringify(createVueLoaderOptions(isDev)))
+// console.log(JSON.stringify(createVueLoaderOptions(isDev)))
 const config = {
+  mode: process.env.NODE_ENV || 'production', // 只能是development和production
   target: 'web',
   entry: path.join(__dirname, '../client/index.js'),
   output: {

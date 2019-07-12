@@ -45,7 +45,7 @@ export default {
 }
 
 &.completed {
-  label;
+  // label;
   color: #d9d9d9;
   text-decoration: line-through;
 }
