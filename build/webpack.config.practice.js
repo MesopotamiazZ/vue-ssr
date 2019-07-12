@@ -33,7 +33,7 @@ const defaultPlugins = [
 ]
 
 config = merge(baseConfig, {
-  entry: path.join(__dirname, '../practice/instance/index.js'),
+  entry: path.join(__dirname, '../practice/index.js'),
   devtool: '#cheap-module-eval-source-map',
   module: {
     rules: [
