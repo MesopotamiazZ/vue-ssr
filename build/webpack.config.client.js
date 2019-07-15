@@ -16,6 +16,9 @@ const devServer = {
   overlay: {
     errors: true
   },
+  historyApiFallback: { // 加上这个配置的目的是防止再次刷新页面,报404
+    index: '/public/index.html' // 这个里面的public是来自,output中publicPath的配置,如果没配则不添加
+  },
   hot: true
 }
 
@@ -26,7 +29,8 @@ const defaultPlugins = [
     }
   }),
   new HTMLPlugin({ // 在dist生成index.html文件
-    title: 'todo'
+    title: 'todo',
+    template: path.join(__dirname, '../client/index.html')
   }),
   new VueLoaderPlugin()
 ]

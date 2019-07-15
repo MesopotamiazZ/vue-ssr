@@ -8,7 +8,7 @@
       @keyup.enter="addTodo"
     />
     <template v-for="todo in filterTodos">
-      <Item :todo="todo" 
+      <Item :todo="todo"
             :key="todo.id"
             @del="deleteTodo"></Item>
     </template>
@@ -16,6 +16,7 @@
           :todos="todos"
           @filter="setFilter"
           @clear="clearAllCompleted"></Tabs>
+    <router-view />
   </section>
 </template>
 

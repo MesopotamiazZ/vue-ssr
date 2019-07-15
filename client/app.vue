@@ -2,8 +2,15 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <Todo></Todo>
+    <router-link :to="{name: 'app'}">app</router-link>
+    <router-link to="/login/123/wzd">login</router-link>
+    <!-- <Todo></Todo> -->
+    <!-- 加入vue-router以后更改 -->
+    <transition name="fade">
+      <router-view />
+    </transition>
     <Footer></Footer>
+    <router-view name="a" />
   </div>
 </template>
 
