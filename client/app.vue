@@ -2,6 +2,8 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
+    <p>{{count}}</p>
+    <p>{{fullName}}</p>
     <router-link :to="{name: 'app'}">app</router-link>
     <router-link to="/login/123/wzd">login</router-link>
     <!-- <Todo></Todo> -->
@@ -16,14 +18,44 @@
 
 <script>
 import Header from './layout/header.vue'
-import Todo from './views/todo/todo.vue'
+// import Todo from './views/todo/todo.vue'
 import Footer from './layout/footer.jsx'
+// import { setInterval } from 'timers'
+
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   components: {
     Header,
-    Footer,
-    Todo
+    Footer
+    // Todo
+  },
+  mounted () {
+    console.log(this.$store)
+    // let i = 1
+    // setInterval(() => {
+    //   this.$store.commit('updateCount', i++)
+    // }, 1000)
+    this.updateCountAsync({
+      num: 5,
+      time: 2000
+    })
+  },
+  computed: {
+    // count () {
+    //   return this.$store.state.count
+    // },
+    // 可以改写成下面的写法
+    ...mapState(['count']),
+    // fullName () {
+    //   return this.$store.getters.fullName
+    // }
+    // getters可以改写成下面的写法
+    ...mapGetters(['fullName'])
+  },
+  methods: {
+    ...mapActions(['updateCountAsync']),
+    ...mapMutations(['updateCount'])
   }
 }
 </script>

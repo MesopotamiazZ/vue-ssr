@@ -1,5 +1,12 @@
-import Todo from '../views/todo/todo.vue'
-import Login from '../views/login/login.vue'
+// import Todo from '../views/todo/todo.vue'
+// import Login from '../views/login/login.vue'
+// 改成路由异步加载以后会报一个Unexpected token错误,
+// 需要暗转一个插件babel-plugin-syntax-dynamic-import
+// 并且在.babelrc文件加一个配置"syntax-dynamic-import"
+const Todo = () =>
+  import('../views/todo/todo.vue')
+const Login = () =>
+  import('../views/login/login.vue')
 
 export default [
   {
@@ -22,7 +29,11 @@ export default [
         path: 'test',
         component: Login
       }
-    ]
+    ],
+    beforeEnter: (to, from, next) => {
+      console.log('app route before enter')
+      next()
+    }
   },
   {
     name: 'login',

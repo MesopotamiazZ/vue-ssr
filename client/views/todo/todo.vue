@@ -47,6 +47,12 @@ export default {
       })
     }
   },
+  created () {
+    console.log('created')
+  },
+  mounted () {
+    console.log('mounted')
+  },
   methods: {
     addTodo (e) {
       this.todos.unshift({
@@ -64,6 +70,20 @@ export default {
     },
     clearAllCompleted () {
       this.todos = this.todos.filter(todo => !todo.completed)
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before enter')
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('todo before update')
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo before leave')
+    if (window.confirm('are you sure?')) {
+      next()
     }
   }
 }
