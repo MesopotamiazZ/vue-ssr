@@ -5,14 +5,14 @@
     <p>{{count}}</p>
     <p>{{fullName}}</p>
     <router-link :to="{name: 'app'}">app</router-link>
-    <router-link to="/login/123/wzd">login</router-link>
+    <router-link to="/login">login</router-link>
     <!-- <Todo></Todo> -->
     <!-- 加入vue-router以后更改 -->
     <transition name="fade">
       <router-view />
     </transition>
     <Footer></Footer>
-    <router-view name="a" />
+    <!-- <router-view name="a" /> -->
   </div>
 </template>
 
@@ -30,17 +30,17 @@ export default {
     Footer
     // Todo
   },
-  mounted () {
-    console.log(this.$store)
-    // let i = 1
-    // setInterval(() => {
-    //   this.$store.commit('updateCount', i++)
-    // }, 1000)
-    this.updateCountAsync({
-      num: 5,
-      time: 2000
-    })
-  },
+  // mounted () {
+  //   // console.log(this.$store)
+  //   // let i = 1
+  //   // setInterval(() => {
+  //   //   this.$store.commit('updateCount', i++)
+  //   // }, 1000)
+  //   this.updateCountAsync({
+  //     num: 5,
+  //     time: 2000
+  //   })
+  // },
   computed: {
     // count () {
     //   return this.$store.state.count

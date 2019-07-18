@@ -6,8 +6,12 @@
 
 <script>
 export default {
-  mounted () {
-    console.log(this.$route, this.$route.params.id, this.$route.meta)
-  }
+  // created () {
+  //   console.log('login created')
+  // },
+  // mounted () {
+  //   // console.log(this.$route, this.$route.params.id, this.$route.meta)
+  //   console.log('login munted')
+  // }
 }
 </script>

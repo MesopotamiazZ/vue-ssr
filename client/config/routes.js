@@ -16,33 +16,36 @@ export default [
   {
     name: 'app',
     path: '/app',
-    components: {
-      default: Todo,
-      a: Login
-    },
+    // components: {
+    //   default: Todo,
+    //   a: Login
+    // },
+    component: Todo,
     meta: { // 保存页面的信息
       title: 'this is app',
       description: '这个是主页面'
-    },
-    children: [
-      {
-        path: 'test',
-        component: Login
-      }
-    ],
-    beforeEnter: (to, from, next) => {
-      console.log('app route before enter')
-      next()
     }
+    // children: [
+    //   {
+    //     path: 'test',
+    //     component: Login
+    //   }
+    // ]
+    // beforeEnter: (to, from, next) => {
+    //   console.log('app route before enter')
+    //   next()
+    // }
   },
   {
     name: 'login',
-    path: '/login/:id/:name',
-    props: true, // 组件中可以直接通过props为id拿到路由中传过去的id
-    components: {
-      default: Login,
-      a: Todo
-    },
+    // path: '/login/:id/:name',
+    path: '/login',
+    // props: true, // 组件中可以直接通过props为id拿到路由中传过去的id
+    // components: {
+    //   default: Login,
+    //   a: Todo
+    // },
+    component: Login,
     meta: { // 保存页面的信息
       title: 'this is login',
       description: '这个是登录页面'

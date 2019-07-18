@@ -6,6 +6,7 @@ const ExtractPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -32,7 +33,8 @@ const defaultPlugins = [
     title: 'todo',
     template: path.join(__dirname, '../client/index.html')
   }),
-  new VueLoaderPlugin()
+  new VueLoaderPlugin(),
+  new VueClientPlugin()
 ]
 
 if (isDev) { // 开发环境
